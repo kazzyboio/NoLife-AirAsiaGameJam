@@ -37,17 +37,5 @@ public class QuestPointer : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
         image.transform.position = pos;
-
-        if (isHqPointer)
-        {
-            if (FoodInventory.instance.foodCount == FoodInventory.instance.maxFoodCount)
-            { 
-                gameObject.SetActive(false);
-            }
-            else
-            { 
-                gameObject.SetActive(true);
-            }
-        }
     }
 }

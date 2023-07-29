@@ -17,6 +17,8 @@ public class FoodCollect : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(countdown);
+
         if (countdown && FoodInventory.instance.foodCount < FoodInventory.instance.maxFoodCount)
         { 
             currentPickupTimer -= Time.deltaTime;
@@ -39,7 +41,7 @@ public class FoodCollect : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && FoodInventory.instance.foodCount < FoodInventory.instance.maxFoodCount)
+        if (other.CompareTag("Player"))
         {
             countdown = false;
             currentPickupTimer = pickupTimer;

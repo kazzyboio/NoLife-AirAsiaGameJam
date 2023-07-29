@@ -23,9 +23,13 @@ public class FoodInventory : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        Debug.Log(foodCount);
+    }
+
     public void FoodCollected()
     {
         foodCount++;
-        Debug.Log(foodCount);
     }
 }
