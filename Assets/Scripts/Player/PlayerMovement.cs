@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         //move.x = joystick.Horizontal;
         //move.y = joystick.Vertical;
 
-        ////player rotation
+        //player rotation
         //float hAxis = move.x;
         //float vAxis = move.y;
         //float zAxis = Mathf.Atan2(hAxis, vAxis) * Mathf.Rad2Deg;
@@ -46,10 +46,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movementDirection = new Vector2(hAxis, vAxis).normalized;
         rb.velocity = movementDirection * normalSpeed;
 
-        // Calculate the angle of the joystick input
         float angle = Mathf.Atan2(vAxis, hAxis) * Mathf.Rad2Deg;
 
-        // Play the appropriate animation based on the angle
         if (angle < 0)
         {
             angle += 360f;
@@ -80,11 +78,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            // momentum based movement 1
+            // momentum movement 1
             Vector2 move = new Vector2(joystick.Horizontal, joystick.Vertical);
             rb.AddForce(move * currentSpeed, ForceMode2D.Force);
 
-            // momentum based movement 2
+            // momentum movement 2
             //velocity += move.normalized * currentSpeed * Time.fixedDeltaTime;
             //rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
             //velocity *= 0.9f;
