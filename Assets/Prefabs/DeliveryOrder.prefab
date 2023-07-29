@@ -114,7 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df86db4e2365e8d48b1cecb47089d03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patienceTimer: 10
-  deliveryTimer: 2
   attachedPoint: {fileID: 0}
   attachedPointer: {fileID: 0}
+  maxPatience: 15
+  deliveryTimer: 1.5
+  deliverScoreValue: 100
+  patienceFillImage: {fileID: 0}

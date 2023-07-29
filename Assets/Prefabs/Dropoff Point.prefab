@@ -98,3 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasOrder: 0
+  onCooldown: 0
+  currentCooldown: 0
+  maxCooldown: 1.5
