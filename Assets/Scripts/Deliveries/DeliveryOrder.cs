@@ -10,22 +10,22 @@ public class DeliveryOrder : MonoBehaviour
     public GameObject attachedPoint, attachedPointer;
 
     [SerializeField]
-    private float maxPatience, deliveryTimer;
+    private float maxPatience, maxDeliveryTimer;
     [SerializeField]
     private int deliverScoreValue;
-    [SerializeField]
-    private Image patienceFillImage;
 
     private GameObject player;
-    private float currentDeliveryTimer, fillAmount, currentPatience;
+    private Image patienceFillImage, deliverFillImage;
+    private float currentPatience, currentDeliveryTimer, patienceFillAmount, deliverFillAmount;
     private bool countdown = false, fail = true;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        currentDeliveryTimer = deliveryTimer;
+        currentDeliveryTimer = maxDeliveryTimer;
         currentPatience = maxPatience;
-        patienceFillImage = attachedPointer.transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
+        patienceFillImage = attachedPointer.transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
+        deliverFillImage = attachedPointer.transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
 
         Invoke("Despawn", maxPatience);
     }
@@ -33,12 +33,14 @@ public class DeliveryOrder : MonoBehaviour
     private void Update()
     {
         currentPatience -= Time.deltaTime;
-        fillAmount = currentPatience / maxPatience;
-        patienceFillImage.fillAmount = fillAmount;
+        patienceFillAmount = currentPatience / maxPatience;
+        patienceFillImage.fillAmount = patienceFillAmount;
 
         if (countdown)
         {
             currentDeliveryTimer -= Time.deltaTime;
+            deliverFillAmount = (maxDeliveryTimer - currentDeliveryTimer) / maxDeliveryTimer;
+            deliverFillImage.fillAmount = deliverFillAmount;
         }
 
         if (currentDeliveryTimer <= 0f)
@@ -63,7 +65,7 @@ public class DeliveryOrder : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            currentDeliveryTimer = deliveryTimer;
+            currentDeliveryTimer = maxDeliveryTimer;
             countdown = false;
         }
     }

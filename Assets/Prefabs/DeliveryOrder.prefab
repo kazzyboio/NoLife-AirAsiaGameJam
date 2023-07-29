@@ -117,6 +117,5 @@ MonoBehaviour:
   attachedPoint: {fileID: 0}
   attachedPointer: {fileID: 0}
   maxPatience: 15
-  deliveryTimer: 1.5
+  maxDeliveryTimer: 1.5
   deliverScoreValue: 100
-  patienceFillImage: {fileID: 0}

@@ -54,7 +54,7 @@ public class DropPointManager : MonoBehaviour
         //check if there are available dropoff points (not on cooldown/doesn't already have an order)
         for (int i = 0; i < DropOffPoints.Count; i++)
         {
-            if (!DropOffPoints[i].GetComponent<DropPointBehaviour>().hasOrder && !DropOffPoints[ranDropNum].GetComponent<DropPointBehaviour>().onCooldown)
+            if (!DropOffPoints[i].GetComponent<DropPointBehaviour>().hasOrder && !DropOffPoints[i].GetComponent<DropPointBehaviour>().onCooldown)
             {
                 break;
             }
