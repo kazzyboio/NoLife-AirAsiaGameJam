@@ -8,12 +8,15 @@ public class QuestPointer : MonoBehaviour
     public Transform target;
     public Image image;
 
+    [SerializeField]
+    private bool isHqPointer = false;
+
     private void Update()
     {
-        float minX = image.GetPixelAdjustedRect().width / 2;
+        float minX = image.GetPixelAdjustedRect().width / 4;
         float maxX = Screen.width - minX;
 
-        float minY = image.GetPixelAdjustedRect().height / 2;
+        float minY = image.GetPixelAdjustedRect().height / 4;
         float maxY = Screen.height - minY;
 
         Vector2 pos = Camera.main.WorldToScreenPoint(target.position);
@@ -34,5 +37,17 @@ public class QuestPointer : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
         image.transform.position = pos;
+
+        if (isHqPointer)
+        {
+            if (FoodInventory.instance.foodCount == FoodInventory.instance.maxFoodCount)
+            { 
+                gameObject.SetActive(false);
+            }
+            else
+            { 
+                gameObject.SetActive(true);
+            }
+        }
     }
 }
