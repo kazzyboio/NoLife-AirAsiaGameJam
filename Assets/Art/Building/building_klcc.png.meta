@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1716fec2e55576545b7c9917fcc6d11d
+guid: 5ce8c8fb0080d81418033bdbda662092
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,40 +101,16 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: building_2_0
+      name: building_klcc_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 500
-        width: 1000
+        y: 2500
+        width: 2000
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -143,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd8fbbf09645a004aaa7cba9361bd599
-      internalID: -491864933
+      spriteID: 77113f4d06aa34c43b030bafc634d7fa
+      internalID: 659815232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: building_2_1
+      name: building_klcc_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1000
+        y: 2000
+        width: 2000
         height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -164,8 +140,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86951f2c51fdf0d4c8da0e68a23dd312
-      internalID: 1369244571
+      spriteID: 67490ac050f7a704b8d85345e85a55a0
+      internalID: -772897878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: building_klcc_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 2000
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b11b1b1de3b5f04daacaa2c54994e44
+      internalID: 603865857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: building_klcc_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 2000
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e52af19031074489a96703a3d14dee
+      internalID: -1240553779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: building_klcc_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 2000
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f74d8fa94cfc12748b667e58d2cd670f
+      internalID: -1766962438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: building_klcc_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2000
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2ea2f915875b3438d0754e177df90c
+      internalID: 59579123
       vertices: []
       indices: 
       edges: []
@@ -181,8 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      building_2_1: 1369244571
-      building_2_0: -491864933
+      building_klcc_0: 659815232
+      building_klcc_1: -772897878
+      building_klcc_3: -1240553779
+      building_klcc_2: 603865857
+      building_klcc_5: 59579123
+      building_klcc_4: -1766962438
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

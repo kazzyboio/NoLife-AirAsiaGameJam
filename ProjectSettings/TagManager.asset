@@ -43,3 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Roads
+    uniqueID: 829685511
+    locked: 0
+  - name: Props_BehindPlayer
+    uniqueID: 3815702475
+    locked: 0
+  - name: Player
+    uniqueID: 360370353
+    locked: 0
+  - name: Props_InFrontPlayer
+    uniqueID: 462414157
+    locked: 0
