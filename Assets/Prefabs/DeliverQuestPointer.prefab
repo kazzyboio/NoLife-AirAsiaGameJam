@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   image: {fileID: 1281280474863067850}
+  offsetAmount: 60
   minDistance: 2
   maxDistance: 5
   minScale: 0.5

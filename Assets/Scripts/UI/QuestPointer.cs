@@ -8,6 +8,9 @@ public class QuestPointer : MonoBehaviour
     public Transform target;
     public Image image;
 
+    [SerializeField]
+    private float offsetAmount;
+
     [Header("Image Scaling")]
     public float minDistance = 2f;
     public float maxDistance = 5f;
@@ -43,7 +46,7 @@ public class QuestPointer : MonoBehaviour
         float minX = image.GetPixelAdjustedRect().width / 4;
         float maxX = Screen.width - minX;
 
-        float minY = image.GetPixelAdjustedRect().height / 4;
+        float minY = image.GetPixelAdjustedRect().height / 2;
         float maxY = Screen.height - minY;
 
         if (Vector3.Dot((target.position - transform.position), transform.forward) < 0)
@@ -75,7 +78,7 @@ public class QuestPointer : MonoBehaviour
         float scale = Mathf.Lerp(maxScale, minScale, normalizedDistance);
         transform.localScale = new Vector3(scale, scale, 1f);
 
-        Vector2 newOffset = new Vector2(0f, 200f); // quest pointer image offset
+        Vector2 newOffset = new Vector2(0f, offsetAmount); // quest pointer image offset
         SetOffset(newOffset);
     }
 }
