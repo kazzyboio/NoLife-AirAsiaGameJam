@@ -97,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                speedBoosted = false;
                 rb.MovePosition(rb.position + move * normalSpeed * Time.fixedDeltaTime);
             }
         }
@@ -120,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ApplySpeedBoost()
     {
+        speedBoosted = true;
         currentSpeed = normalSpeed * speedBoostMultiplier; 
         speedChangeEndTime = Time.time + speedBoostDuration; 
     }
@@ -133,7 +135,6 @@ public class PlayerMovement : MonoBehaviour
     private void RemoveGrassSlowdown()
     {
         currentSpeed = normalSpeed;
-        speedChangeEndTime = Time.time + speedBoostDuration;
     }
 
     private void AudioTrigger()

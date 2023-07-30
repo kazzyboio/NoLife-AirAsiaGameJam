@@ -43,11 +43,11 @@ public class QuestPointer : MonoBehaviour
 
         Vector2 screenPos = Camera.main.WorldToScreenPoint(target.position);
 
-        float minX = image.GetPixelAdjustedRect().width / 4;
-        float maxX = Screen.width - minX;
+        float minX = image.GetPixelAdjustedRect().width;
+        float maxX = Screen.width - minX + 100f;
 
-        float minY = image.GetPixelAdjustedRect().height / 2;
-        float maxY = Screen.height - minY;
+        float minY = image.GetPixelAdjustedRect().height / 3;
+        float maxY = Screen.height - minY - 300f;
 
         if (Vector3.Dot((target.position - transform.position), transform.forward) < 0)
         {
@@ -74,9 +74,9 @@ public class QuestPointer : MonoBehaviour
 
         float distanceToTarget = Vector3.Distance(target.position, Camera.main.transform.position);
 
-        float normalizedDistance = Mathf.Clamp01((distanceToTarget - minDistance) / (maxDistance - minDistance));
-        float scale = Mathf.Lerp(maxScale, minScale, normalizedDistance);
-        transform.localScale = new Vector3(scale, scale, 1f);
+        //float normalizedDistance = Mathf.Clamp01((distanceToTarget - minDistance) / (maxDistance - minDistance));
+        //float scale = Mathf.Lerp(maxScale, minScale, normalizedDistance);
+        //transform.localScale = new Vector3(scale, scale, 1f);
 
         Vector2 newOffset = new Vector2(0f, offsetAmount); // quest pointer image offset
         SetOffset(newOffset);

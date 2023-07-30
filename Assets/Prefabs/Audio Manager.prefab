@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3379543723703046275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3379543723703046273}
+  - component: {fileID: 3379543723703046274}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3379543723703046273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3379543723703046275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3379543723703046274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3379543723703046275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4990bc047c0876c47a179cf1b64169c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: 65c7652a282d83c4cbb0ae49a39dde53, type: 3}
+    source: {fileID: 0}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+  - name: BGM
+    clip: {fileID: 8300000, guid: 33227e70fc7ae09469e8e5a2e63f92ad, type: 3}
+    source: {fileID: 0}
+    volume: 0.075
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+  - name: Ambience
+    clip: {fileID: 8300000, guid: aaaa69b1625780c4cbcf544ab3cf272d, type: 3}
+    source: {fileID: 0}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+  - name: Moving
+    clip: {fileID: 8300000, guid: 1af1df31758d74440ab4c77b29dc3ea9, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+  - name: Delivered
+    clip: {fileID: 8300000, guid: 85c173a6a5684df49b095747cfd7be42, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - name: Delivering
+    clip: {fileID: 8300000, guid: c4860601ee91ed8449f9c13addeea424, type: 3}
+    source: {fileID: 0}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - name: DeliverFail
+    clip: {fileID: 8300000, guid: e8bf807e9fd735a4cb59f4a5697d4fe1, type: 3}
+    source: {fileID: 0}
+    volume: 2
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - name: DeliverReq
+    clip: {fileID: 8300000, guid: fc0349c851044944fa1252e29fc9cfa8, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - name: GainRep
+    clip: {fileID: 8300000, guid: 0bd623619d608ca429c7924d63f6d61c, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - name: Hazard
+    clip: {fileID: 8300000, guid: 2e95ecaec0f00d049a478dfd88079c8f, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - name: Refill
+    clip: {fileID: 8300000, guid: e62135e19c752f548a9cd5dfbc1f75a5, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - name: RefillReq
+    clip: {fileID: 8300000, guid: a50a30eaed8ae4444947ced810becbbe, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - name: Click
+    clip: {fileID: 8300000, guid: af4929797125b144e83be922a492a1da, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
