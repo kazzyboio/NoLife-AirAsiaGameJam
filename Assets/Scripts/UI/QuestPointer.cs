@@ -56,6 +56,6 @@ public class QuestPointer : MonoBehaviour
         float distanceToTarget = Vector3.Distance(target.position, Camera.main.transform.position);
         float normalizedDistance = Mathf.Clamp01((distanceToTarget - minDistance) / (maxDistance - minDistance));
         float scale = Mathf.Lerp(maxScale, minScale, normalizedDistance); 
-        transform.localScale = new Vector3(scale, scale, 1f);
+        gameObject.GetComponent<RectTransform>().localScale = new Vector3(scale, scale, 1f);
     }
 }

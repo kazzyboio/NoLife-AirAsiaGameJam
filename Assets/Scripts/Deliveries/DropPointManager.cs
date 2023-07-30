@@ -6,6 +6,9 @@ public class DropPointManager : MonoBehaviour
 {
     public static DropPointManager instance;
 
+    [HideInInspector]
+    public bool noEmptyPoints = false;
+
     [SerializeField]
     private List<GameObject> DropOffPoints = new List<GameObject>(), Customers = new List<GameObject>();
     [SerializeField]
@@ -13,9 +16,7 @@ public class DropPointManager : MonoBehaviour
     [SerializeField]
     private Canvas canvas;
     [SerializeField]
-    private float startSpawnSpeed, speedIncrease, minSpawnSpeed;
-
-    public bool noEmptyPoints = false;
+    private float startSpawnSpeed, minSpawnSpeed, speedIncreaseAmount, firstSpawn;
     private float spawnSpeed;
 
     private void Awake()
@@ -28,20 +29,26 @@ public class DropPointManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        foreach (GameObject drop in GameObject.FindGameObjectsWithTag("Dropoff"))
+        {
+            DropOffPoints.Add(drop);
+        }
     }
 
     void Start()
     {
         spawnSpeed = Mathf.Clamp(startSpawnSpeed, minSpawnSpeed, startSpawnSpeed);
 
-        InvokeRepeating("SpawnDropOff", spawnSpeed, spawnSpeed);
+        InvokeRepeating("SpawnDropOff", firstSpawn, spawnSpeed);
     }
 
     public void IncreaseSpeed()
     {
         CancelInvoke("SpawnDropOff");
 
-        spawnSpeed -= speedIncrease;
+        spawnSpeed -= speedIncreaseAmount;
+        spawnSpeed = Mathf.Clamp(spawnSpeed, minSpawnSpeed, startSpawnSpeed);
 
         InvokeRepeating("SpawnDropOff", spawnSpeed, spawnSpeed);
     }
@@ -92,6 +99,8 @@ public class DropPointManager : MonoBehaviour
             thisRequest.GetComponent<DeliveryOrder>().attachedCustomer = thisCustomer;
 
             DropOffPoints[ranDropNum].GetComponent<DropPointBehaviour>().hasOrder = true;
+
+            IncreaseSpeed();
         }
     }
 }
