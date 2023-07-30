@@ -14,7 +14,7 @@ public class Obstacle : MonoBehaviour
 
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damageAmount); 
+                //playerHealth.TakeDamage(damageAmount); 
             }
         }
     }
