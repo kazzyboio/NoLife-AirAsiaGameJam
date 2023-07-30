@@ -8,9 +8,10 @@ public class StarRating : MonoBehaviour
     public static StarRating instance;
 
     public int maxStars = 5, currentStars = 5, deliverCombo = 0;
-
     public Image starFillImage;
 
+    [SerializeField]
+    private GameObject menu;
     private float fillAmount;
 
     private void Awake()
@@ -47,5 +48,10 @@ public class StarRating : MonoBehaviour
     public void UpdateRating(int stars)
     {
         currentStars = Mathf.Clamp(stars, 0, maxStars);
+
+        if (currentStars <= 0)
+        {
+            menu.GetComponent<MainMenu>().GameOver();
+        }
     }
 }
