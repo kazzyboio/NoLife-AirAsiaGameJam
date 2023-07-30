@@ -9,18 +9,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
-    private Vector2 move;
-    private Vector2 velocity;
+    //private Vector2 move, velocity;
 
-    public float normalSpeed = 5f; // normal speed 
-    public float tarSlowMultiplier = 0.25f; // tar speed
-    public float speedBoostMultiplier = 2f; // speed boost
-    public float speedBoostDuration = 2f;
+    public float normalSpeed = 5f, grassSlowMultiplier = 0.25f, speedBoostMultiplier = 2f, speedBoostDuration = 2f; 
 
-    private float currentSpeed;
-    private float speedChangeEndTime;
+    private float currentSpeed, speedChangeEndTime;
 
-    private bool soundTrigger = true;
+    private bool soundTrigger = true, speedBoosted = false;
 
     public static bool isPointerDown = true;
 
@@ -46,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         float vAxis = joystick.Vertical;
 
         Vector2 movementDirection = new Vector2(hAxis, vAxis).normalized;
-        rb.velocity = movementDirection * normalSpeed;
+        rb.velocity = movementDirection * currentSpeed;
 
         float angle = Mathf.Atan2(vAxis, hAxis) * Mathf.Rad2Deg;
 
@@ -96,29 +91,30 @@ public class PlayerMovement : MonoBehaviour
             //velocity *= 0.9f;
 
             // original movement
-            //if (Time.time < speedChangeEndTime)
-            //{
-            //    rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
-            //}
-            //else
-            //{
-            //    rb.MovePosition(rb.position + move * normalSpeed * Time.fixedDeltaTime);
-            //}
+            if (Time.time < speedChangeEndTime)
+            {
+                rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
+            }
+            else
+            {
+                rb.MovePosition(rb.position + move * normalSpeed * Time.fixedDeltaTime);
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //if (other.CompareTag("PowerUp")) 
-        //{
-        //    ApplySpeedBoost();
-
-        //    Destroy(other.gameObject);
-        //}
-        
-        if (other.CompareTag("Tar")) 
+        if (other.CompareTag("Grass") && !speedBoosted) 
         {
-            ApplyTarSlowdown();
+            ApplyGrassSlowdown();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Grass") && !speedBoosted)
+        {
+            RemoveGrassSlowdown();
         }
     }
 
@@ -128,10 +124,16 @@ public class PlayerMovement : MonoBehaviour
         speedChangeEndTime = Time.time + speedBoostDuration; 
     }
 
-    private void ApplyTarSlowdown()
+    private void ApplyGrassSlowdown()
     {
-        currentSpeed = normalSpeed * tarSlowMultiplier; 
+        currentSpeed = normalSpeed * grassSlowMultiplier; 
         speedChangeEndTime = Time.time + speedBoostDuration; 
+    }
+
+    private void RemoveGrassSlowdown()
+    {
+        currentSpeed = normalSpeed;
+        speedChangeEndTime = Time.time + speedBoostDuration;
     }
 
     private void AudioTrigger()

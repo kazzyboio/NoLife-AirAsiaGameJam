@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 863055753859287974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8832175, y: 0.9418543, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -72,11 +72,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -479264821
+  m_SortingLayer: 2
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.9756278, b: 0.033018887, a: 0.11764706}
+  m_Color: {r: 0.9622642, g: 0.81885767, b: 0.34950158, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -116,6 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachedPoint: {fileID: 0}
   attachedPointer: {fileID: 0}
-  maxPatience: 15
+  attachedCustomer: {fileID: 0}
+  maxPatience: 18
   maxDeliveryTimer: 1
   deliverScoreValue: 100
+  player: {fileID: 0}

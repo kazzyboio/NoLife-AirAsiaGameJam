@@ -14,6 +14,7 @@ public class DeliveryOrder : MonoBehaviour
     [SerializeField]
     private int deliverScoreValue;
 
+    [SerializeField]
     private GameObject player;
     private Image patienceFillImage, deliverFillImage;
     private float currentPatience, currentDeliveryTimer, patienceFillAmount, deliverFillAmount;
