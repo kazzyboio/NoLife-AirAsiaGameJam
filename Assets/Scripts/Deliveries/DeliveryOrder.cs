@@ -66,6 +66,7 @@ public class DeliveryOrder : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             currentDeliveryTimer = maxDeliveryTimer;
+            deliverFillImage.fillAmount = 0f;
             countdown = false;
         }
     }
