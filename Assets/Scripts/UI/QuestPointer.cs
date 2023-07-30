@@ -14,6 +14,20 @@ public class QuestPointer : MonoBehaviour
     public float minScale = 0.5f;
     public float maxScale = 1f;
 
+    private Vector2 initialOffset;
+
+    // custom constructor to set the initial offset
+    public void Initialize(Vector2 offset)
+    {
+        initialOffset = offset;
+    }
+
+    // method to set the offset dynamically during runtime
+    public void SetOffset(Vector2 newOffset)
+    {
+        initialOffset = newOffset;
+    }
+
     private void Update()
     {
         if (target == null)
@@ -47,6 +61,8 @@ public class QuestPointer : MonoBehaviour
         screenPos.x = Mathf.Clamp(screenPos.x, minX, maxX);
         screenPos.y = Mathf.Clamp(screenPos.y, minY, maxY);
 
+        // Apply the initial offset for this specific object
+        screenPos += initialOffset;
         transform.position = screenPos;
 
         Vector3 directionToTarget = target.position - Camera.main.transform.position;
@@ -54,8 +70,12 @@ public class QuestPointer : MonoBehaviour
         image.transform.rotation = Quaternion.Euler(0f, 0f, angleToTarget);
 
         float distanceToTarget = Vector3.Distance(target.position, Camera.main.transform.position);
+
         float normalizedDistance = Mathf.Clamp01((distanceToTarget - minDistance) / (maxDistance - minDistance));
-        float scale = Mathf.Lerp(maxScale, minScale, normalizedDistance); 
+        float scale = Mathf.Lerp(maxScale, minScale, normalizedDistance);
         transform.localScale = new Vector3(scale, scale, 1f);
+
+        Vector2 newOffset = new Vector2(0f, 200f); // quest pointer image offset
+        SetOffset(newOffset);
     }
 }

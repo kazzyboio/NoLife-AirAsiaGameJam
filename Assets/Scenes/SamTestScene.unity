@@ -981,6 +981,14 @@ PrefabInstance:
       propertyPath: minScale
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2592559994588323742, guid: 9d1cf7f8e1a9c4b4395d84e9557d2fb6, type: 3}
+      propertyPath: offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592559994588323742, guid: 9d1cf7f8e1a9c4b4395d84e9557d2fb6, type: 3}
+      propertyPath: offset.y
+      value: -150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d1cf7f8e1a9c4b4395d84e9557d2fb6, type: 3}
 --- !u!224 &723524386 stripped
