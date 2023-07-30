@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Tar
   - PowerUp
+  - Dropoff
+  - Grass
   layers:
   - Default
   - TransparentFX
