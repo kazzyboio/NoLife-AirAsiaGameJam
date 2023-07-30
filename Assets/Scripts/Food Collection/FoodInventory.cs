@@ -8,7 +8,7 @@ public class FoodInventory : MonoBehaviour
     public static FoodInventory instance;
 
     [HideInInspector]
-    public int foodCount = 0;
+    public int foodCount = 5;
     public int maxFoodCount;
 
     [SerializeField]

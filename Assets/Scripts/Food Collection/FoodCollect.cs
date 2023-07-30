@@ -24,6 +24,8 @@ public class FoodCollect : MonoBehaviour
 
         if (currentPickupTimer <= 0f)
         {
+            AudioManager.instance.Play("Refill");
+
             FoodInventory.instance.FoodCollected();
             currentPickupTimer = pickupTimer;
         }

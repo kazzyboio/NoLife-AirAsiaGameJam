@@ -7,7 +7,7 @@ public class DropPointManager : MonoBehaviour
     public static DropPointManager instance;
 
     [SerializeField]
-    private List<GameObject> DropOffPoints = new List<GameObject>();
+    private List<GameObject> DropOffPoints = new List<GameObject>(), Customers = new List<GameObject>();
     [SerializeField]
     private GameObject questPointerPrefab, deliveryRequestPrefab;
     [SerializeField]
@@ -74,6 +74,10 @@ public class DropPointManager : MonoBehaviour
 
         if (!noEmptyPoints)
         {
+            AudioManager.instance.Play("DeliverReq");
+
+            int ranCustNum = Random.Range(0, Customers.Count);
+
             GameObject thisPointer = Instantiate(questPointerPrefab, transform.position, Quaternion.identity);
             thisPointer.transform.SetParent(canvas.transform);
             thisPointer.transform.SetAsFirstSibling();
@@ -83,6 +87,9 @@ public class DropPointManager : MonoBehaviour
             GameObject thisRequest = Instantiate(deliveryRequestPrefab, DropOffPoints[ranDropNum].transform.position, Quaternion.identity);
             thisRequest.GetComponent<DeliveryOrder>().attachedPoint = DropOffPoints[ranDropNum];
             thisRequest.GetComponent<DeliveryOrder>().attachedPointer = thisPointer;
+
+            GameObject thisCustomer = Instantiate(Customers[ranCustNum], DropOffPoints[ranDropNum].transform.position, Quaternion.identity);
+            thisRequest.GetComponent<DeliveryOrder>().attachedCustomer = thisCustomer;
 
             DropOffPoints[ranDropNum].GetComponent<DropPointBehaviour>().hasOrder = true;
         }

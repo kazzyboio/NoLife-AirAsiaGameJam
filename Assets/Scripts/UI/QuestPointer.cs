@@ -47,15 +47,15 @@ public class QuestPointer : MonoBehaviour
         screenPos.x = Mathf.Clamp(screenPos.x, minX, maxX);
         screenPos.y = Mathf.Clamp(screenPos.y, minY, maxY);
 
-        image.transform.position = screenPos;
+        transform.position = screenPos;
 
         Vector3 directionToTarget = target.position - Camera.main.transform.position;
         float angleToTarget = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
-        image.transform.rotation = Quaternion.Euler(0f, 0f, angleToTarget - 180f);
+        image.transform.rotation = Quaternion.Euler(0f, 0f, angleToTarget);
 
         float distanceToTarget = Vector3.Distance(target.position, Camera.main.transform.position);
         float normalizedDistance = Mathf.Clamp01((distanceToTarget - minDistance) / (maxDistance - minDistance));
         float scale = Mathf.Lerp(maxScale, minScale, normalizedDistance); 
-        image.transform.localScale = new Vector3(scale, scale, 1f);
+        transform.localScale = new Vector3(scale, scale, 1f);
     }
 }

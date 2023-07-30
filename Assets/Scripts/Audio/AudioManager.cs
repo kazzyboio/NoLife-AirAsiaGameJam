@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 
         foreach (Audio a in audioClips)
@@ -29,11 +29,6 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
-    {
-        AudioManager.instance.Play("BGM");
     }
 
     public void Play(string name)

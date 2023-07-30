@@ -20,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private float currentSpeed;
     private float speedChangeEndTime;
 
-    public static bool isPointerDown = false;
+    private bool soundTrigger = true;
+
+    public static bool isPointerDown = true;
 
     void Start()
     {
@@ -74,10 +76,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isPointerDown)
         {
+            AudioManager.instance.Stop("Moving");
+            soundTrigger = true;
+
             rb.velocity = Vector3.zero;
         }
         else
         {
+            AudioTrigger();
+            soundTrigger = false;
+
             // momentum movement 1
             Vector2 move = new Vector2(joystick.Horizontal, joystick.Vertical);
             rb.AddForce(move * currentSpeed, ForceMode2D.Force);
@@ -125,4 +133,20 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = normalSpeed * tarSlowMultiplier; 
         speedChangeEndTime = Time.time + speedBoostDuration; 
     }
+
+    private void AudioTrigger()
+    {
+        if (soundTrigger)
+        {
+            AudioManager.instance.Play("Moving");
+        }
+    }
+
+    //private void AudioStopper()
+    //{
+    //    if (!soundTrigger)
+    //    {
+    //        AudioManager.instance.Stop("Moving");
+    //    }
+    //}
 }
