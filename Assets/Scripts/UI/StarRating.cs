@@ -7,8 +7,7 @@ public class StarRating : MonoBehaviour
 {
     public static StarRating instance;
 
-    public int maxStars = 5; 
-    public int currentStars = 0; 
+    public int maxStars = 5, currentStars = 5, deliverCombo = 0;
 
     public Image starFillImage;
 
@@ -28,13 +27,21 @@ public class StarRating : MonoBehaviour
 
     private void Start()
     {
-        UpdateRating(3);
+        UpdateRating(5);
     }
 
     private void Update()
     {
         fillAmount = ((float)currentStars) / maxStars;
         starFillImage.fillAmount = fillAmount;
+
+        if (deliverCombo >= 5)
+        {
+            AudioManager.instance.Play("GainRep");
+
+            deliverCombo = 0;
+            UpdateRating(StarRating.instance.currentStars + 1);
+        }
     }
 
     public void UpdateRating(int stars)

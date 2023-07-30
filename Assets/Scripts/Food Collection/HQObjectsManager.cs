@@ -6,6 +6,7 @@ public class HQObjectsManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject pointer, radius;
+    private bool soundTrigger = true;
 
     private void Update()
     {
@@ -22,11 +23,24 @@ public class HQObjectsManager : MonoBehaviour
         //shows HQ quest pointer when you 0 food in inventory
         if (FoodInventory.instance.foodCount <= 0)
         {
+            AudioTrigger();
+            soundTrigger = false;
+
             pointer.SetActive(true);
         }
         else
         {
+            soundTrigger = true;
+
             pointer.SetActive(false);
+        }
+    }
+
+    private void AudioTrigger()
+    {
+        if (soundTrigger)
+        {
+            AudioManager.instance.Play("RefillReq");
         }
     }
 }

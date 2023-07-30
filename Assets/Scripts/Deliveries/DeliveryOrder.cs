@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DeliveryOrder : MonoBehaviour
 {
     [HideInInspector]
-    public GameObject attachedPoint, attachedPointer;
+    public GameObject attachedPoint, attachedPointer, attachedCustomer;
 
     [SerializeField]
     private float maxPatience, maxDeliveryTimer;
@@ -24,8 +24,8 @@ public class DeliveryOrder : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         currentDeliveryTimer = maxDeliveryTimer;
         currentPatience = maxPatience;
-        patienceFillImage = attachedPointer.transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
-        deliverFillImage = attachedPointer.transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
+        deliverFillImage = attachedPointer.transform.GetChild(2).GetComponent<Image>();
+        patienceFillImage = attachedPointer.transform.GetChild(3).GetComponent<Image>();
 
         Invoke("Despawn", maxPatience);
     }
@@ -46,8 +46,6 @@ public class DeliveryOrder : MonoBehaviour
         if (currentDeliveryTimer <= 0f)
         {
             fail = false;
-            player.GetComponent<PlayerMovement>().ApplySpeedBoost();
-            ScoreManager.instance.currentScore += deliverScoreValue;
 
             Despawn();
         }
@@ -57,6 +55,7 @@ public class DeliveryOrder : MonoBehaviour
     {
         if (other.CompareTag("Player") && FoodInventory.instance.foodCount > 0)
         {
+            AudioManager.instance.Play("Delivering");
             countdown = true;
         }
     }
@@ -65,6 +64,7 @@ public class DeliveryOrder : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.instance.Stop("Delivering");
             currentDeliveryTimer = maxDeliveryTimer;
             deliverFillImage.fillAmount = 0f;
             countdown = false;
@@ -73,21 +73,36 @@ public class DeliveryOrder : MonoBehaviour
 
     private void Despawn()
     {
+        AudioManager.instance.Stop("Delivering");
+
         DropPointManager.instance.noEmptyPoints = false;
         attachedPoint.GetComponent<DropPointBehaviour>().hasOrder = false;
         attachedPoint.GetComponent<DropPointBehaviour>().TriggerCooldown();
 
         if (fail)
         {
+            AudioManager.instance.Play("DeliverFail");
+
+            attachedCustomer.GetComponent<Animator>().SetBool("Angry", true);
+
+            StarRating.instance.deliverCombo = 0;
             StarRating.instance.UpdateRating(StarRating.instance.currentStars - 1);
         }
         else
         {
-            StarRating.instance.UpdateRating(StarRating.instance.currentStars + 1);
+            AudioManager.instance.Play("Delivered");
+
+            ScoreManager.instance.currentScore += deliverScoreValue;
+            StarRating.instance.deliverCombo++;
+
+            attachedCustomer.GetComponent<Animator>().SetBool("Happy", true);
+
+            player.GetComponent<PlayerMovement>().ApplySpeedBoost();
             FoodInventory.instance.FoodDelivered();
         }
 
         Destroy(attachedPointer);
+        Destroy(attachedCustomer, 1.5f);
         Destroy(gameObject);
     }
 }
