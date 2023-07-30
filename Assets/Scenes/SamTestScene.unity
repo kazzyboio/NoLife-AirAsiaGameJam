@@ -1766,14 +1766,14 @@ MonoBehaviour:
   - name: Delivered
     clip: {fileID: 8300000, guid: 85c173a6a5684df49b095747cfd7be42, type: 3}
     source: {fileID: 0}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     playOnAwake: 0
   - name: Delivering
     clip: {fileID: 8300000, guid: c4860601ee91ed8449f9c13addeea424, type: 3}
     source: {fileID: 0}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0
