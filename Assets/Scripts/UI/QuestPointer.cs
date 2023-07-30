@@ -8,8 +8,7 @@ public class QuestPointer : MonoBehaviour
     public Transform target;
     public Image image;
 
-    [SerializeField]
-    private float offsetAmount;
+    private float offsetAmount = Screen.height / 10;
 
     [Header("Image Scaling")]
     public float minDistance = 2f;
@@ -43,11 +42,17 @@ public class QuestPointer : MonoBehaviour
 
         Vector2 screenPos = Camera.main.WorldToScreenPoint(target.position);
 
-        float minX = image.GetPixelAdjustedRect().width;
-        float maxX = Screen.width - minX + 100f;
+        //float minX = image.GetPixelAdjustedRect().width;
+        //float maxX = Screen.width - minX + 100f;
 
-        float minY = image.GetPixelAdjustedRect().height / 3;
-        float maxY = Screen.height - minY - 300f;
+        //float minY = image.GetPixelAdjustedRect().height / 3;
+        //float maxY = Screen.height - minY - 300f;
+
+        float minX = Screen.width / 4;
+        float maxX = Screen.width * 3 / 4;
+
+        float minY = Screen.height / 8;
+        float maxY = Screen.height * 3 / 4;
 
         if (Vector3.Dot((target.position - transform.position), transform.forward) < 0)
         {
